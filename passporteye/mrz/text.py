@@ -92,14 +92,6 @@ class MRZ(object):
     >>> assert m.surname == 'DAVEMILIENS' and m.names == 'CLEMENT PIASA'
     >>> assert m.check_number == 'NA' and m.check_date_of_birth == 'NA' and m.check_expiration_date == 'NA'
 
-    # Valid French ID
-    >>> m = MRZ(['IDFRAMOULLE<BERTEAUX<<<<<<<<<<921023', '1602921024599JULIETTE<<MARI0003090F2'])
-    >>> assert m.mrz_type == 'TD2' and m.valid and m.valid_score == 100
-    >>> assert m.type == 'ID' and m.country == 'FRA' and m.number == '160292102459'
-    >>> assert m.date_of_birth == '000309' and m.sex == 'F' and m.expiration_date == '310201' and m.nationality == 'FRA'
-    >>> assert m.surname == 'MOULLE BERTEAUX' and m.names == 'JULIETTE MARI'
-    >>> assert m.check_number == 'NA' and m.check_date_of_birth == 'NA' and m.check_expiration_date == 'NA'
-
     # Invalid examples
     >>> assert MRZ([]).mrz_type is None
     >>> assert MRZ([1,2,3,4]).mrz_type is None
