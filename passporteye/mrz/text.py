@@ -376,7 +376,7 @@ class MRZ(object):
 
     def force_conversion(self, text, to_text=True):
         penalty = 0
-        substitutions = {"0": "O", "1": "I", "4": "A", "5": "S", "8": "B"}
+        substitutions = {"0": "O", "1": "I", "4": "A", "5": "S", "8": "B", "6":"G"}
 
         if to_text:
             for k, v in substitutions.items():
