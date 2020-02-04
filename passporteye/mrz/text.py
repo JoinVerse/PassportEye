@@ -321,7 +321,7 @@ class MRZ(object):
         # Supports multi surname just in case
         surnames = a[5:36]
         surnames_clean = surnames[:-6]
-        self.surname, reduced_score_surnames = self.parse_french_names(surnames_clean.split('<')[0])
+        self.surname, reduced_score_surnames = self.parse_french_names(surnames_clean)
 
         year_of_issuance = b[0:2]
         department_of_issuance = b[4:6]
@@ -368,7 +368,7 @@ class MRZ(object):
 
     def force_conversion(self, text, to_text=True):
         penalty = 0
-        substitutions = {"0": "O", "1": "I", "4": "A", "5": "S", "8": "B"}
+        substitutions = {"0": "O", "1": "I", "4": "A", "5": "S", "8": "B", "6":"G"}
 
         if to_text:
             for k, v in substitutions.items():
